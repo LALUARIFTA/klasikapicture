@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", "Cinzel", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  
+  --color-brand-red: #E63946;
+  --color-brand-red-hover: #D90429;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-light: #F3E5AB;
+  
+  --color-dark-900: #0B0C10;
+  --color-dark-800: #14161D;
+  --color-dark-700: #1F222E;
+  --color-dark-600: #2C3040;
+}
+
+:root {
+  --background: #0b0c10;
+  --foreground: #f5f5f7;
+  --card: #14161d;
+  --card-foreground: #f5f5f7;
+  --popover: #14161d;
+  --popover-foreground: #f5f5f7;
+  --primary: #e63946;
+  --primary-foreground: #ffffff;
+  --secondary: #1f222e;
+  --secondary-foreground: #f5f5f7;
+  --muted: #1f222e;
+  --muted-foreground: #9ca3af;
+  --accent: #d4af37;
+  --accent-foreground: #0b0c10;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #262938;
+  --input: #262938;
+  --ring: #e63946;
+  --radius: 0.75rem;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0c10;
+}
+::-webkit-scrollbar-thumb {
+  background: #262938;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e63946;
+}
+
+/* Blur & ambient background effects */
+.ambient-glow {
+  position: absolute;
+  filter: blur(120px);
+  pointer-events: none;
+  border-radius: 9999px;
+  z-index: 0;
+  opacity: 0.15;
+}
