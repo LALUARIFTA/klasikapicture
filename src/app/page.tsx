@@ -4,7 +4,9 @@ import React from "react";
 import { AnimatedMarqueeHero } from "@/components/hero/AnimatedMarqueeHero";
 import { ShowcaseCorridorSection } from "@/components/sections/ShowcaseCorridorSection";
 import { AboutSection } from "@/components/sections/AboutSection";
+import { StudioSetsSection } from "@/components/sections/StudioSetsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
 import { PortfolioGallery } from "@/components/sections/PortfolioGallery";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
@@ -28,7 +30,9 @@ export default function Home() {
       />
       <ShowcaseCorridorSection />
       <AboutSection />
+      <StudioSetsSection />
       <ServicesSection />
+      <BeforeAfterSection />
       <PortfolioGallery />
       <PricingSection />
       <TestimonialsSection />

@@ -8,23 +8,26 @@ export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const navLinks = [
     { name: "Beranda", href: "#" },
     { name: "Koleksi 3D", href: "#showcase-stream" },
-    { name: "Tentang", href: "#about" },
-    { name: "Portofolio", href: "#portfolio" },
+    { name: "Tentang Kami", href: "#about" },
+    { name: "Galeri Kami", href: "#portfolio" },
     { name: "Paket & Harga", href: "#pricing" },
-    { name: "Ulasan", href: "#reviews" },
+    { name: "Hasil Kerja Kami", href: "#reviews" },
+    { name: "Studio Sets", href: "#studio-sets" },
+    { name: "Before & After", href: "#retouch-showcase" },
     { name: "FAQ", href: "#faq" },
   ];
+
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 20);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header

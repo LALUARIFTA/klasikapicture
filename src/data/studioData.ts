@@ -278,6 +278,74 @@ export const FAQ_LIST: FAQItem[] = [
   },
 ];
 
+export const BEFORE_AFTER_ITEMS = [
+  {
+    id: "ba-1",
+    title: "Signature Fine Art Bridal Mood",
+    subtitle: "High-Fashion Retouch & Timeless Warmth Grading",
+    category: "Wedding & Prewedding",
+    beforeImage: "https://images.unsplash.com/photo-1519741497674-611481863552?q=60&w=1000&auto=format&fit=crop&sat=-30&con=-20",
+    afterImage: "https://images.unsplash.com/photo-1519741497674-611481863552?q=90&w=1000&auto=format&fit=crop",
+    details: ["Micro-contrast recovery", "Selective skin texture smoothing", "Warm highlight glow", "Grain emulation 35mm"],
+  },
+  {
+    id: "ba-2",
+    title: "Editorial Haute Studio Portrait",
+    subtitle: "Depth sculpting with chiaroscuro rim lighting",
+    category: "Personal Portrait",
+    beforeImage: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=60&w=1000&auto=format&fit=crop&sat=-40&con=-30",
+    afterImage: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=90&w=1000&auto=format&fit=crop",
+    details: ["Frequency separation retouch", "Editorial color balance", "Specular highlight boost", "Eye iris sharpening"],
+  },
+  {
+    id: "ba-3",
+    title: "Cinematic Intimate Couple",
+    subtitle: "Rich shadow tone & natural skin authenticity",
+    category: "Intimate Couple",
+    beforeImage: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=60&w=1000&auto=format&fit=crop&sat=-35&con=-25",
+    afterImage: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=90&w=1000&auto=format&fit=crop",
+    details: ["Cinematic film emulation", "Dynamic range recovery", "Rich velvet blacks", "Atmospheric lens glow"],
+  },
+];
+
+export const STUDIO_SETS = [
+  {
+    id: "set-1",
+    name: "The Velvet Salon",
+    theme: "Timeless Vintage & Intimate",
+    description: "Tirai beludru merah marun, furnitur antik klasik Eropa, lampu temaram, dan suasana romantis sinematik.",
+    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop",
+    specs: "Kapasitas: 1-6 Orang | Lighting: Warm Chandelier + Softbox Chiaroscuro",
+    tags: ["Prewedding", "Couple", "Vintage Editorial"],
+  },
+  {
+    id: "set-2",
+    name: "The Monolith White Space",
+    theme: "Minimalist Modern & High-Key",
+    description: "Ruang infinity cyclorama putih seamless dengan pantulan cahaya murni untuk hasil foto bersih, elegan, dan fokus pada ekspresi.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+    specs: "Kapasitas: 1-15 Orang | Lighting: High-Key Octabox 150cm + Parabolic Rim",
+    tags: ["Wisuda", "Family", "Fashion Lookbook", "Executive"],
+  },
+  {
+    id: "set-3",
+    name: "The Architectural Shadow Lounge",
+    theme: "Play of Light & Contemporary Texture",
+    description: "Dinding bertekstur plester semen dengan panel jendela kisi-kisi untuk efek bayangan geometris matahari terbenam (Gobo lights).",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
+    specs: "Kapasitas: 1-8 Orang | Lighting: Hard Spotlight + Projection Gobo Mask",
+    tags: ["Personal Branding", "Editorial Fashion", "Creative Portrait"],
+  },
+];
+
+export const ADDON_OPTIONS = [
+  { id: "addon-mua", name: "Professional MUA & Hairdo", price: 350000, desc: "Makeup artis berpengalaman di studio sebelum sesi" },
+  { id: "addon-hour", name: "Ekstra 1 Jam Studio", price: 300000, desc: "Waktu tambahan pemotretan & pergantian kostum bebas" },
+  { id: "addon-frame", name: "Cetak Canvas Premium 20R + Frame", price: 400000, desc: "Hasil cetak kanvas bertekstur tahan air dan frame kayu" },
+  { id: "addon-reel", name: "Behind The Scenes Reel / TikTok 4K", price: 250000, desc: "Video vertikal sinematik siap posting di Instagram / TikTok" },
+  { id: "addon-extra-person", name: "Tambahan Anggota Keluarga (>8 Org)", price: 50000, desc: "Per orang tambahan untuk sesi keluarga besar" },
+];
+
 export const STUDIO_INFO = {
   name: "Klasikapicture",
   tagline: "Fine Art & Editorial Photography Studio",

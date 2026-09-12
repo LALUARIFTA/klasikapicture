@@ -1,10 +1,35 @@
 "use client";
 
-import React from "react";
-import { STUDIO_PACKAGES } from "@/data/studioData";
-import { Check, Sparkles, Clock, HardDrive, ArrowRight } from "lucide-react";
+import React, { useState } from "react";
+import { STUDIO_PACKAGES, ADDON_OPTIONS } from "@/data/studioData";
+import { Check, Sparkles, Clock, HardDrive, ArrowRight, Calculator, Plus } from "lucide-react";
 
 export const PricingSection: React.FC = () => {
+  const [calcPackage, setCalcPackage] = useState(STUDIO_PACKAGES[1]);
+  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
+
+  // Parse numeric price from format like "Rp 1.850.000"
+  const parsePrice = (priceStr: string) => {
+    return parseInt(priceStr.replace(/[^0-9]/g, ""), 10) || 0;
+  };
+
+  const basePrice = parsePrice(calcPackage.price);
+  const addonsTotal = selectedAddons.reduce((acc, addonId) => {
+    const item = ADDON_OPTIONS.find((a) => a.id === addonId);
+    return acc + (item ? item.price : 0);
+  }, 0);
+  const grandTotal = basePrice + addonsTotal;
+
+  const toggleAddon = (addonId: string) => {
+    setSelectedAddons((prev) =>
+      prev.includes(addonId) ? prev.filter((id) => id !== addonId) : [...prev, addonId]
+    );
+  };
+
+  const formatRupiah = (val: number) => {
+    return "Rp " + val.toLocaleString("id-ID");
+  };
+
   return (
     <section id="pricing" className="py-24 bg-[#0E1017] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +49,7 @@ export const PricingSection: React.FC = () => {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-16">
           {STUDIO_PACKAGES.map((pkg) => (
             <div
               key={pkg.id}
@@ -93,7 +118,7 @@ export const PricingSection: React.FC = () => {
               {/* Action Button */}
               <div className="mt-8 pt-6">
                 <a
-                  href={`#booking?package=${encodeURIComponent(pkg.title)}`}
+                  href="#booking"
                   className={`w-full py-3.5 px-4 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all duration-200 ${
                     pkg.highlighted
                       ? "bg-red-500 hover:bg-red-600 text-white shadow-lg shadow-red-500/25"
@@ -108,14 +133,103 @@ export const PricingSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Custom inquiry note */}
-        <div className="mt-12 text-center p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800 max-w-2xl mx-auto">
-          <p className="text-xs sm:text-sm text-neutral-400">
-            Butuh sesi khusus skala komersial, luar ruangan (outdoor), atau sewa studio per jam?{" "}
-            <a href="#booking" className="text-red-400 font-semibold underline underline-offset-4 hover:text-red-300">
-              Hubungi Tim Konsultasi Kami
+        {/* Interactive Add-on Calculator Box */}
+        <div className="bg-neutral-900/90 border border-neutral-800 rounded-3xl p-8 sm:p-10 shadow-2xl backdrop-blur-xl">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-neutral-800 mb-8">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center border border-red-500/30">
+                <Calculator className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-xl font-serif font-bold text-white">
+                  Kalkulator Estimasi & Custom Add-On
+                </h3>
+                <p className="text-xs text-neutral-400 mt-0.5">
+                  Sesuaikan paket utama dengan opsi tambahan layanan yang Anda butuhkan
+                </p>
+              </div>
+            </div>
+
+            {/* Package selector dropdown in calculator */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-neutral-400">Paket Dasar:</span>
+              <select
+                value={calcPackage.id}
+                onChange={(e) => {
+                  const found = STUDIO_PACKAGES.find((p) => p.id === e.target.value);
+                  if (found) setCalcPackage(found);
+                }}
+                className="px-3 py-2 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-xs font-semibold focus:outline-none focus:border-red-500"
+              >
+                {STUDIO_PACKAGES.map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {p.title} ({p.price})
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Addons Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {ADDON_OPTIONS.map((addon) => {
+              const isChecked = selectedAddons.includes(addon.id);
+              return (
+                <div
+                  key={addon.id}
+                  onClick={() => toggleAddon(addon.id)}
+                  className={`p-4 rounded-2xl border transition-all cursor-pointer select-none flex items-start gap-3 ${
+                    isChecked
+                      ? "bg-red-500/10 border-red-500/60 shadow-lg shadow-red-500/10"
+                      : "bg-neutral-950/60 border-neutral-800/80 hover:border-neutral-700"
+                  }`}
+                >
+                  <div
+                    className={`w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5 border ${
+                      isChecked
+                        ? "bg-red-500 border-red-500 text-white"
+                        : "border-neutral-700 bg-neutral-900"
+                    }`}
+                  >
+                    {isChecked ? <Check className="w-3.5 h-3.5 stroke-[3]" /> : <Plus className="w-3 h-3 text-neutral-500" />}
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-semibold text-white">
+                      {addon.name}
+                    </h4>
+                    <p className="text-[11px] text-neutral-400 mt-0.5">
+                      {addon.desc}
+                    </p>
+                    <span className="inline-block mt-2 text-xs font-bold text-red-400">
+                      +{formatRupiah(addon.price)}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Calculator Bottom Summary */}
+          <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-xs text-neutral-400 block">Total Perkiraan Biaya:</span>
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl sm:text-3xl font-bold font-serif text-white">
+                  {formatRupiah(grandTotal)}
+                </span>
+                <span className="text-xs text-neutral-400">
+                  ({calcPackage.title} + {selectedAddons.length} Add-on)
+                </span>
+              </div>
+            </div>
+
+            <a
+              href="#booking"
+              className="px-6 py-3 rounded-xl bg-red-500 hover:bg-red-600 text-white text-xs sm:text-sm font-bold shadow-lg shadow-red-500/20 text-center transition-all"
+            >
+              Lanjutkan ke Form Reservasi
             </a>
-          </p>
+          </div>
         </div>
 
       </div>
