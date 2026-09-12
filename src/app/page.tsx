@@ -21,12 +21,28 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { AmbientAudioPlayer } from "@/components/layout/AmbientAudioPlayer";
 import { ThemeAccentSwitcher } from "@/components/layout/ThemeAccentSwitcher";
+import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { BackToTop } from "@/components/ui/BackToTop";
+import { MobileBottomBar } from "@/components/ui/MobileBottomBar";
 import { MARQUEE_HERO_IMAGES } from "@/data/studioData";
 
 export default function Home() {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden relative">
+      {/* 35mm Analog Film Grain Texture */}
+      <div className="film-grain" />
+
+      {/* Global Scroll Progress */}
+      <ScrollProgressBar />
+
+      {/* Interactive Cursor Follower (Desktop) */}
+      <CustomCursor />
+
+      {/* Navigation */}
       <Navbar />
+
+      {/* Hero */}
       <AnimatedMarqueeHero 
         tagline="Artistry in Every Pixel | Wedding, Portrait, Editorial"
         title={<>Fine Art Photography Studio</>}
@@ -35,6 +51,8 @@ export default function Home() {
         images={MARQUEE_HERO_IMAGES}
         onCtaClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
       />
+
+      {/* Sections Flow */}
       <ShowcaseCorridorSection />
       <AboutSection />
       <StudioSetsSection />
@@ -51,8 +69,12 @@ export default function Home() {
       <BookingSection />
       <FaqSection />
       <Footer />
+
+      {/* Floating UX Widgets */}
       <AmbientAudioPlayer />
       <ThemeAccentSwitcher />
+      <BackToTop />
+      <MobileBottomBar />
     </div>
   );
 }
