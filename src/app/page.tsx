@@ -2,19 +2,12 @@
 
 import React from "react";
 import { AnimatedMarqueeHero } from "@/components/hero/AnimatedMarqueeHero";
-import { ShowcaseCorridorSection } from "@/components/sections/ShowcaseCorridorSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { StudioSetsSection } from "@/components/sections/StudioSetsSection";
-import { StudioTourHotspots } from "@/components/sections/StudioTourHotspots";
-import { ServicesSection } from "@/components/sections/ServicesSection";
 import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
 import { PortfolioGallery } from "@/components/sections/PortfolioGallery";
-import { VideoReelsSection } from "@/components/sections/VideoReelsSection";
-import { ClientStoriesSection } from "@/components/sections/ClientStoriesSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { StyleFinderQuiz } from "@/components/sections/StyleFinderQuiz";
-import { AvailabilityCalendarSection } from "@/components/sections/AvailabilityCalendarSection";
 import { BookingSection } from "@/components/sections/BookingSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { Footer } from "@/components/layout/Footer";
@@ -22,27 +15,23 @@ import { Navbar } from "@/components/layout/Navbar";
 import { AmbientAudioPlayer } from "@/components/layout/AmbientAudioPlayer";
 import { ThemeAccentSwitcher } from "@/components/layout/ThemeAccentSwitcher";
 import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { MobileBottomBar } from "@/components/ui/MobileBottomBar";
 import { MARQUEE_HERO_IMAGES } from "@/data/studioData";
 
 export default function Home() {
   return (
-    <div className="overflow-hidden relative">
-      {/* 35mm Analog Film Grain Texture */}
+    <div className="overflow-hidden relative bg-[#07080B] text-foreground">
+      {/* 35mm Analog Film Grain Texture Overlay */}
       <div className="film-grain" />
 
-      {/* Global Scroll Progress */}
+      {/* Global Scroll Progress Bar */}
       <ScrollProgressBar />
 
-      {/* Interactive Cursor Follower (Desktop) */}
-      <CustomCursor />
-
-      {/* Navigation */}
+      {/* Modern Desktop & Mobile Navigation */}
       <Navbar />
 
-      {/* Hero */}
+      {/* Hero Section */}
       <AnimatedMarqueeHero 
         tagline="Artistry in Every Pixel | Wedding, Portrait, Editorial"
         title={<>Fine Art Photography Studio</>}
@@ -52,25 +41,34 @@ export default function Home() {
         onCtaClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
       />
 
-      {/* Sections Flow */}
-      <ShowcaseCorridorSection />
+      {/* Core Studio Philosophy & Features */}
       <AboutSection />
+
+      {/* Studio Interior & Sets */}
       <StudioSetsSection />
-      <StudioTourHotspots />
-      <ServicesSection />
+
+      {/* Color Grading & Retouching Comparison */}
       <BeforeAfterSection />
+
+      {/* Complete Portfolio Showcase */}
       <PortfolioGallery />
-      <VideoReelsSection />
-      <ClientStoriesSection />
-      <StyleFinderQuiz />
-      <AvailabilityCalendarSection />
+
+      {/* Pricing & Interactive Add-on Calculator */}
       <PricingSection />
+
+      {/* Client Reviews */}
       <TestimonialsSection />
+
+      {/* Booking with Live Slot Picker & Instant Invoice */}
       <BookingSection />
+
+      {/* FAQ with Live Search Filter */}
       <FaqSection />
+
+      {/* Footer with Map & Contact */}
       <Footer />
 
-      {/* Floating UX Widgets */}
+      {/* Floating Auxiliary UX Elements */}
       <AmbientAudioPlayer />
       <ThemeAccentSwitcher />
       <BackToTop />
