@@ -346,6 +346,65 @@ export const ADDON_OPTIONS = [
   { id: "addon-extra-person", name: "Tambahan Anggota Keluarga (>8 Org)", price: 50000, desc: "Per orang tambahan untuk sesi keluarga besar" },
 ];
 
+export const VIDEO_REELS = [
+  {
+    id: "reel-1",
+    title: "Behind The Scenes: Timeless Romance Editorial",
+    client: "Aditya & Sarah (Prewedding)",
+    duration: "0:45",
+    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-fashion-model-in-a-studio-session-42289-large.mp4",
+    poster: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop",
+    tag: "BTS Studio 4K",
+  },
+  {
+    id: "reel-2",
+    title: "Sculpting Light & Shadows: Personal Portrait",
+    client: "Executive Branding & Model Lookbook",
+    duration: "0:38",
+    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-woman-posing-for-a-photographer-41132-large.mp4",
+    poster: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    tag: "Lighting Breakdown",
+  },
+  {
+    id: "reel-3",
+    title: "Golden Hour Studio Symphony",
+    client: "Graduation & Family Milestone",
+    duration: "0:52",
+    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-photographer-taking-pictures-of-a-smiling-model-41130-large.mp4",
+    poster: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=600&auto=format&fit=crop",
+    tag: "Atmosphere & Vibe",
+  },
+];
+
+export const CLIENT_STORIES = [
+  {
+    id: "story-1",
+    couple: "Dion & Felicia",
+    category: "The Velvet Salon Session",
+    date: "September 2024",
+    quote: "Klasika berhasil menangkap chemistry kami yang tidak biasa. Rasanya seperti potongan film bioskop vintage.",
+    cover: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop",
+    ],
+  },
+  {
+    id: "story-2",
+    couple: "Nathanael Wibowo",
+    category: "Architectural Personal Branding",
+    date: "Agustus 2024",
+    quote: "Pencahayaan geometris dan shadow casting-nya luar biasa. Foto ini langsung saya pakai untuk header LinkedIn dan portofolio arsitektur.",
+    cover: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?q=80&w=800&auto=format&fit=crop",
+    ],
+  },
+];
+
 export const STUDIO_INFO = {
   name: "Klasikapicture",
   tagline: "Fine Art & Editorial Photography Studio",

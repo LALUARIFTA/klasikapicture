@@ -14,9 +14,11 @@ export const Navbar: React.FC = () => {
     { name: "Tentang Kami", href: "#about" },
     { name: "Galeri Kami", href: "#portfolio" },
     { name: "Paket & Harga", href: "#pricing" },
-    { name: "Hasil Kerja Kami", href: "#reviews" },
+    { name: "Ulasan Klien", href: "#reviews" },
     { name: "Studio Sets", href: "#studio-sets" },
     { name: "Before & After", href: "#retouch-showcase" },
+    { name: "Video Reels", href: "#video-reels" },
+    { name: "Cerita Klien", href: "#client-stories" },
     { name: "FAQ", href: "#faq" },
   ];
 

@@ -1,10 +1,16 @@
 "use client";
 
-import React from "react";
-import { Camera, MapPin, Mail, MessageCircle } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Camera, MapPin, Mail, MessageCircle, ExternalLink, Navigation } from "lucide-react";
 import { STUDIO_INFO } from "@/data/studioData";
 
 export const Footer: React.FC = () => {
+  const [year, setYear] = useState(2025);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="bg-[#07080B] pt-20 pb-10 border-t border-neutral-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,15 +29,26 @@ export const Footer: React.FC = () => {
             <p className="text-sm text-neutral-400 leading-relaxed">
               Fine Art & Editorial Studio Fotografi yang menangkap keindahan emosi dengan sentuhan artistik klasik.
             </p>
+            <div className="pt-2">
+              <a
+                href={STUDIO_INFO.whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-900 border border-neutral-800 text-xs font-semibold text-neutral-300 hover:text-white hover:border-red-500 transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <span>Chat Admin WhatsApp</span>
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="text-sm font-bold text-white mb-6">Navigasi Studio</h4>
             <ul className="space-y-3 text-sm text-neutral-400">
-              {["Koleksi 3D", "Portofolio", "Paket Harga", "Ulasan", "Reservasi"].map((link) => (
+              {["Koleksi 3D", "Portofolio", "Paket Harga", "Studio Sets", "Before & After", "Video Reels", "Reservasi"].map((link) => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(" ", "-")}`} className="hover:text-red-400 transition-colors">
+                  <a href={`#${link.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`} className="hover:text-red-400 transition-colors">
                     {link}
                   </a>
                 </li>
@@ -58,27 +75,37 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Social */}
+          {/* Location Map Preview */}
           <div>
-            <h4 className="text-sm font-bold text-white mb-6">Ikuti Kami</h4>
-            <a
-              href={STUDIO_INFO.instagramUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 hover:border-red-500 transition-colors group"
-            >
-              <svg className="w-5 h-5 text-red-500 fill-none stroke-current stroke-2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-              </svg>
-              <span className="text-sm text-neutral-300 group-hover:text-white">Instagram {STUDIO_INFO.instagram}</span>
-            </a>
+            <h4 className="text-sm font-bold text-white mb-6">Peta Lokasi Studio</h4>
+            <div className="rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 relative aspect-video flex flex-col justify-between p-4 shadow-lg group">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-2">
+                  <Navigation className="w-4 h-4 text-red-500" />
+                  <span className="text-xs font-semibold text-white">Dago, Kota Bandung</span>
+                </div>
+                <span className="text-[10px] px-2 py-0.5 rounded-md bg-red-500/20 text-red-400 font-mono">
+                  Buka Setiap Hari
+                </span>
+              </div>
+              <p className="text-[11px] text-neutral-400 line-clamp-2">
+                Jl. Ranggamalela No. 18, Dago. Parkir mobil luas & ruang tunggu ber-AC.
+              </p>
+              <a
+                href="https://maps.google.com/?q=Dago+Bandung"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 w-full py-2 rounded-xl bg-neutral-800 group-hover:bg-red-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <span>Buka di Google Maps</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="pt-8 border-t border-neutral-900 text-center text-xs text-neutral-600">
-          &copy; {new Date().getFullYear()} Klasikapicture. Seluruh hak cipta dilindungi. Estetika oleh Klasika Studio.
+          &copy; {year} Klasikapicture. Seluruh hak cipta dilindungi. Estetika oleh Klasika Studio.
         </div>
       </div>
     </footer>

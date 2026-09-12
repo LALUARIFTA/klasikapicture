@@ -42,6 +42,39 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Klasikapicture",
+  image: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000",
+  "@id": "https://klasikapicture.com",
+  url: "https://klasikapicture.com",
+  telephone: "+6281234567890",
+  priceRange: "Rp 650.000 - Rp 1.850.000",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Jl. Ranggamalela No. 18, Dago",
+    addressLocality: "Bandung",
+    addressRegion: "Jawa Barat",
+    postalCode: "40116",
+    addressCountry: "ID",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "09:00",
+    closes: "21:00",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,6 +82,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${plusJakartaSans.variable} ${playfairDisplay.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased selection:bg-red-500 selection:text-white">
         {children}
       </body>
