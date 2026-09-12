@@ -16,9 +16,12 @@ export const Navbar: React.FC = () => {
     { name: "Paket & Harga", href: "#pricing" },
     { name: "Ulasan Klien", href: "#reviews" },
     { name: "Studio Sets", href: "#studio-sets" },
+    { name: "Virtual Tour", href: "#studio-tour" },
     { name: "Before & After", href: "#retouch-showcase" },
     { name: "Video Reels", href: "#video-reels" },
     { name: "Cerita Klien", href: "#client-stories" },
+    { name: "Mood Finder", href: "#style-finder" },
+    { name: "Jadwal Studio", href: "#calendar" },
     { name: "FAQ", href: "#faq" },
   ];
 

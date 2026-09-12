@@ -5,6 +5,7 @@ import { AnimatedMarqueeHero } from "@/components/hero/AnimatedMarqueeHero";
 import { ShowcaseCorridorSection } from "@/components/sections/ShowcaseCorridorSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { StudioSetsSection } from "@/components/sections/StudioSetsSection";
+import { StudioTourHotspots } from "@/components/sections/StudioTourHotspots";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { BeforeAfterSection } from "@/components/sections/BeforeAfterSection";
 import { PortfolioGallery } from "@/components/sections/PortfolioGallery";
@@ -12,11 +13,14 @@ import { VideoReelsSection } from "@/components/sections/VideoReelsSection";
 import { ClientStoriesSection } from "@/components/sections/ClientStoriesSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { StyleFinderQuiz } from "@/components/sections/StyleFinderQuiz";
+import { AvailabilityCalendarSection } from "@/components/sections/AvailabilityCalendarSection";
 import { BookingSection } from "@/components/sections/BookingSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { AmbientAudioPlayer } from "@/components/layout/AmbientAudioPlayer";
+import { ThemeAccentSwitcher } from "@/components/layout/ThemeAccentSwitcher";
 import { MARQUEE_HERO_IMAGES } from "@/data/studioData";
 
 export default function Home() {
@@ -34,17 +38,21 @@ export default function Home() {
       <ShowcaseCorridorSection />
       <AboutSection />
       <StudioSetsSection />
+      <StudioTourHotspots />
       <ServicesSection />
       <BeforeAfterSection />
       <PortfolioGallery />
       <VideoReelsSection />
       <ClientStoriesSection />
+      <StyleFinderQuiz />
+      <AvailabilityCalendarSection />
       <PricingSection />
       <TestimonialsSection />
       <BookingSection />
       <FaqSection />
       <Footer />
       <AmbientAudioPlayer />
+      <ThemeAccentSwitcher />
     </div>
   );
 }
